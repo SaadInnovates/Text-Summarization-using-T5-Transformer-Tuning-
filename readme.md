@@ -70,6 +70,7 @@ pip install tensorflow transformers[torch] datasets evaluate rouge_score
 
 ### 2. Load Model and Weights
 
+```bash
 from transformers import TFT5ForConditionalGeneration, T5Tokenizer
 
 checkpoint = "t5-small"
@@ -77,10 +78,13 @@ model = TFT5ForConditionalGeneration.from_pretrained(checkpoint, from_pt=True)
 model.load_weights("./t5_finetuned.weights.h5")
 
 tokenizer = T5Tokenizer.from_pretrained(checkpoint)
+```
 
 
 ### 3. Generate Summaries
 
+
+```bash
 input_texts = ["Your input article text goes here."]
 inputs = tokenizer(input_texts, return_tensors="tf", max_length=512, truncation=True)
 
@@ -93,9 +97,13 @@ generated_ids = model.generate(
 
 summaries = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
 print(summaries)
+```
 
 
 ### 4. Evaluate on Validation Set
+
+
+```bash
 import evaluate
 rouge = evaluate.load("rouge")
 
@@ -121,6 +129,7 @@ for batch in val_dataset.take(50):  # Subset for fast evaluation
 
 results = rouge.compute(predictions=predictions, references=references)
 print(results)
+```
 
 
 ### 📊 Expected Results
