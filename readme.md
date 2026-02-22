@@ -53,7 +53,7 @@ This project demonstrates **end-to-end workflow** from preprocessing to model ev
 T5-Text-Summarization/
 │
 ├─ notebook.ipynb # Full training & evaluation notebook
-├─ t5_finetuned.weights.h5 # Saved model weights
+├─ t5_best.weights.h5 # Saved model weights
 ├─ README.md # Project description
 └─ requirements.txt # Required Python packages
 
