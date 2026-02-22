@@ -75,7 +75,7 @@ from transformers import TFT5ForConditionalGeneration, T5Tokenizer
 
 checkpoint = "t5-small"
 model = TFT5ForConditionalGeneration.from_pretrained(checkpoint, from_pt=True)
-model.load_weights("./t5_finetuned.weights.h5")
+model.load_weights("./t5_best.weights.h5")
 
 tokenizer = T5Tokenizer.from_pretrained(checkpoint)
 ```
